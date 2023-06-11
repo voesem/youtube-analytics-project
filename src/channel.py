@@ -38,6 +38,9 @@ class Channel:
         return self.__channel_id
 
     def to_json(self, filename):
+        """
+        Метод, сохраняющий в json-файл значения атрибутов экземпляра Channel
+        """
         data = {
             'channel_id': self.__channel_id,
             'title': self.title,
@@ -53,4 +56,7 @@ class Channel:
 
     @classmethod
     def get_service(cls):
+        """
+        Метод, возвращающий объект для работы с YouTube API
+        """
         return build('youtube', 'v3', developerKey=api_key)
