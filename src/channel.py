@@ -1,10 +1,12 @@
 import json
+import os
 
+from dotenv import load_dotenv
 from googleapiclient.discovery import build
 
-# метод os.getenv('YOUTUBE_API_KEY')
-# выдает ошибку google.auth.exceptions.DefaultCredentialsError, поэтому ключ ввожу прямо здесь
-api_key: str = 'AIzaSyASr8OrVL1W1yIxfphOLonE_Y9PMn45ZNg'
+load_dotenv()
+
+api_key: str = os.getenv('YOUTUBE_API_KEY')
 youtube = build('youtube', 'v3', developerKey=api_key)
 
 
