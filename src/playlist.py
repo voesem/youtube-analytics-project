@@ -1,10 +1,9 @@
 import os
+from datetime import timedelta
 
 import isodate as isodate
-from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
-from src.video import PLVideo
 
 load_dotenv()
 
