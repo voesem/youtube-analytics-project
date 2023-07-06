@@ -16,10 +16,16 @@ class Video:
                                                id=video_id
                                                ).execute()
         self.__video_id = video_id
-        self.title = video_response['items'][0]['snippet']['title']
-        self.url = f'https://youtu.be/{self.__video_id}'
-        self.view_count = video_response['items'][0]['statistics']['viewCount']
-        self.like_count = video_response['items'][0]['statistics']['likeCount']
+        try:
+            self.title = video_response['items'][0]['snippet']['title']
+            self.url = f'https://youtu.be/{self.__video_id}'
+            self.view_count = video_response['items'][0]['statistics']['viewCount']
+            self.like_count = video_response['items'][0]['statistics']['likeCount']
+        except IndexError:
+            self.title = None
+            self.url = None
+            self.view_count = None
+            self.like_count = None
 
     def __str__(self):
         return self.title
